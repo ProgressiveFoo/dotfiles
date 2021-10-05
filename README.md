@@ -1,1 +1,1 @@
-![alt text]https://github.com/ProgressiveFoo/dotfiles/blob/main/AtlantisWasteManagement/atlantis-readme.png
+<img>https://raw.githubusercontent.com/ProgressiveFoo/dotfiles/main/AtlantisWasteManagement/atlantis-readme.png</img>
