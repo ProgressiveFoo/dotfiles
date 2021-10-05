@@ -4,3 +4,8 @@
 ![image](https://user-images.githubusercontent.com/35846412/136106851-37ed5645-9aab-4022-80d9-5743a2ffdcc5.png)
 ![image](https://user-images.githubusercontent.com/35846412/136106903-3fc4a03b-99e0-4d68-9be6-5113a2b1078a.png)
 
+Alacritty - https://github.com/alacritty/alacritty
+i3        - https://i3wm.org/
+LunarVim  - https://github.com/LunarVim/LunarVim
+Ranger    - https://github.com/ranger/ranger
+Rofi      -https://github.com/davatorium/rofi
