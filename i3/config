@@ -44,10 +44,10 @@ floating_modifier $mod
 bindsym $mod+Return exec alacritty
 
 # start Google-chrome
-bindsym $mod+Shift+Return exec google-chrome; 
+bindsym $mod+Shift+Return exec firefox; 
 
 # flameshot
-bindsym $mod+m exec gyazo
+bindsym $mod+m exec flameshot gui
 
 # peek
 bindsym $mod+n exec peek
@@ -121,11 +121,11 @@ bindsym $mod+p exec albert
 set $ws1 "1:  "
 set $ws2 "2:  " 
 set $ws3 "3:  "
-set $ws4 "4: ︁"
-set $ws5 "5: ︁"; 
-set $ws6 "6: ︁"; exec thunderbird
+set $ws4 "4"
+set $ws5 "5: ︁ "; 
+set $ws6 "6"; 
 set $ws7 "7"
-set $ws8 "8: ︁"
+set $ws8 "8"
 set $ws9 "9: 🎵︁";
 set $ws10 "10"
 
@@ -207,14 +207,14 @@ bar {
 	position top
 	tray_output none
 	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m  nic  \
-		 memory cpu battery pasink time date  \
+		 memory cpu  battery brightness pasink time date  \
 		-p root.path=/ time.format="%H:%M" date.format="%a, %b %d %Y" memory.format={percent:05.02f}% nic.format={ssid} \
 		-t solarized
 }
 
 # Gaps
-gaps inner 10
-gaps outer -4
+ gaps inner 44
+ gaps outer -4
 
 
 # smart_gaps on
@@ -261,7 +261,7 @@ gaps outer -4
 exec --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
 
 # Display background
-exec_always feh --bg-fill ~/Downloads/315287.jpg
+exec_always feh --bg-fill ~/Pictures/solarized-deep-ocean-submarine.jpg
 # Boarder
 default_border pixel 2
 default_floating_border pixel 2
@@ -278,11 +278,7 @@ exec --no-startup-id alacritty
 exec --no-startup-id picom -CGb
 exec --no-startup-id ~/.config/i3/i3-alternating-layout/alternating_layouts.py
  
-# brightness
-
-bindsym XF86MonBrightnessUp exec xbacklight -inc 20
-bindsym XF86MonBrightnessDown exec xbacklight -dec 20
-
-
 # tap to click 
 exec xinput set-prop "DLLC6B2:00 06CB:75BF Touchpad" "libinput Tapping Enabled" 1
+
+

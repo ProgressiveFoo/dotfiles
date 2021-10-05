@@ -20,6 +20,7 @@ unsetopt BEEP
 
 alias v="/home/miroslav/.local/bin/lvim"
 alias i3="v ~/.config/i3/config"
+alias ls="exa --long "
 
 #task 
 alias t="task"
