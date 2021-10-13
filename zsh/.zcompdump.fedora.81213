@@ -1,4 +1,4 @@
-#files: 986	version: 5.8
+#files: 975	version: 5.8
 
 _comps=(
 '-' '_precommand'
@@ -215,7 +215,6 @@ _comps=(
 'composite' '_imagemagick'
 'compress' '_compress'
 'conch' '_twisted'
-'conda' '_conda'
 '-condition-' '_condition'
 'config.status' '_configure'
 'configure' '_configure'
@@ -1827,10 +1826,23 @@ zle -C _list_expansions .list-choices _expand_word
 zle -C _most_recent_file .complete-word _most_recent_file
 zle -C _next_tags .list-choices _next_tags
 zle -C _read_comp .complete-word _read_comp
+bindkey '^X^R' _read_comp
+bindkey '^X?' _complete_debug
+bindkey '^XC' _correct_filename
+bindkey '^Xa' _expand_alias
+bindkey '^Xc' _correct_word
+bindkey '^Xd' _list_expansions
+bindkey '^Xe' _expand_word
+bindkey '^Xh' _complete_help
+bindkey '^Xm' _most_recent_file
+bindkey '^Xn' _next_tags
+bindkey '^Xt' _complete_tag
+bindkey '^X~' _bash_list-choices
+bindkey '^[,' _history-complete-newer
+bindkey '^[/' _history-complete-older
+bindkey '^[~' _bash_complete-word
 
-autoload -Uz _autocomplete.all_matches _autocomplete.ancestor_dirs _autocomplete.command _autocomplete.compadd_opts_len _autocomplete.history_lines \
-            _autocomplete.is_glob _autocomplete.recent_paths _autocomplete.requoted _autocomplete.sort_by_length _autocomplete.unambiguous \
-            _alacritty _bluetoothctl _bootctl _busctl _cargo \
+autoload -Uz _alacritty _bluetoothctl _bootctl _busctl _cargo \
             _catimg _code _coredumpctl _curl _email-notmuch \
             _exa _firewalld _flatpak _hostnamectl _ikona-cli \
             _journalctl _kernel-install _libinput _localectl _loginctl \
@@ -2024,7 +2036,7 @@ autoload -Uz _autocomplete.all_matches _autocomplete.ancestor_dirs _autocomplete
             _zfs_keysource_props _zfs_pool _zftp _zip _zle \
             _zlogin _zmodload _zmv _zoneadm _zones \
             _zparseopts _zpool _zpty _zsh _zsh-mime-handler \
-            _zsocket _zstyle _ztodo _zypper _conda
+            _zsocket _zstyle _ztodo _zypper
 autoload -Uz +X _call_program
 
 typeset -gUa _comp_assocs

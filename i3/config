@@ -28,8 +28,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
-exec --no-startup-id nm-applet
-
+exec --no-startup-id nm-applet --sm-disable
 # Use pactl to adjust volume in PulseAudio.
 set $refresh_i3status killall -SIGUSR1 i3status
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
@@ -46,8 +45,8 @@ bindsym $mod+Return exec alacritty
 # start Google-chrome
 bindsym $mod+Shift+Return exec firefox; 
 
-# flameshot
-bindsym $mod+m exec flameshot gui
+# gyazo
+bindsym $mod+m exec gyazo
 
 # peek
 bindsym $mod+n exec peek
@@ -55,7 +54,7 @@ bindsym $mod+n exec peek
 bindsym $mod+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+d exec --no-startup-id rofi -show run
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
@@ -111,22 +110,17 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-#bind albert
-
-bindsym $mod+p exec albert 
-
-
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
 set $ws1 "1:  "
 set $ws2 "2:  " 
 set $ws3 "3:  "
 set $ws4 "4"
-set $ws5 "5: ︁ "; 
-set $ws6 "6"; 
+set $ws5 "5: ︁ " 
+set $ws6 "6: " 
 set $ws7 "7"
 set $ws8 "8"
-set $ws9 "9: 🎵︁";
+set $ws9 "9: 🎵︁"
 set $ws10 "10"
 
 # switch to workspace
@@ -187,7 +181,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-set $bg-color 	         #fdf6e3
+set $bg-color 	         #2aa198
 set $inactive-bg-color   #2f343f
 set $text-color          #f3f4f5
 set $inactive-text-color #676E7D
@@ -195,7 +189,7 @@ set $urgent-bg-color     #E53935
 
 # window colors
 #                       border              background         text                 indicator
-client.focused          $bg-color           $bg-color          $bg-color            #fdf6e3                       
+client.focused          $bg-color           $bg-color          $bg-color            #2aa198                       
 client.unfocused        $inactive-bg-color $inactive-bg-color $inactive-text-color 
 client.focused_inactive $inactive-bg-color $inactive-bg-color $inactive-text-color 
 client.urgent           $urgent-bg-color    $urgent-bg-color   $text-color         
@@ -207,14 +201,14 @@ bar {
 	position top
 	tray_output none
 	status_command ~/.config/i3/bumblebee-status/bumblebee-status -m  nic  \
-		 memory cpu  battery brightness pasink time date  \
+		 memory cpu  battery brightness pasink time date dnf  \
 		-p root.path=/ time.format="%H:%M" date.format="%a, %b %d %Y" memory.format={percent:05.02f}% nic.format={ssid} \
 		-t solarized
 }
 
 # Gaps
- gaps inner 44
- gaps outer -4
+ # gaps inner 12
+ # gaps outer -4
 
 
 # smart_gaps on
@@ -257,11 +251,8 @@ bar {
 #         bindsym Escape mode "default"
 # }
 
-# Remap Caps Lock to CTRL
-exec --no-startup-id /usr/bin/setxkbmap -option "ctrl:nocaps"
-
 # Display background
-exec_always feh --bg-fill ~/Pictures/solarized-deep-ocean-submarine.jpg
+exec_always feh --bg-fill ~/Downloads/solarized-wallpaper-root.png
 # Boarder
 default_border pixel 2
 default_floating_border pixel 2
@@ -280,5 +271,4 @@ exec --no-startup-id ~/.config/i3/i3-alternating-layout/alternating_layouts.py
  
 # tap to click 
 exec xinput set-prop "DLLC6B2:00 06CB:75BF Touchpad" "libinput Tapping Enabled" 1
-
 

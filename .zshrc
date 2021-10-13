@@ -1,10 +1,14 @@
 #!/bin/sh
 export ZDOTDIR=$HOME/.config/zsh
+export PATH=$HOME/.local/bin/lvim:$PATH
+source ~/Git/zsh-autocomplete/zsh-autocomplete.plugin.zsh
 HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=1000
 setopt SHARE_HISTORY
 setopt appendhistory
+setopt HIST_SAVE_NO_DUPS
+setopt HIST_REDUCE_BLANKS
 
 #solarized autosuggest
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=5'
@@ -18,13 +22,19 @@ zle_highlight=('paste:none')
 # beeping is annoying
 unsetopt BEEP
 
-alias v="/home/miroslav/.local/bin/lvim"
+alias v="$HOME/.local/bin/lvim"
 alias i3="v ~/.config/i3/config"
-alias ls="exa --long "
-
+alias ls="exa --long --grid -a"
+alias snd="setxkbmap -layout us -option ctrl:swap_rwin_rctl && setxkbmap -layout us -option ctrl:nocaps"
+alias ctrl="setxkbmap -layout us -option ctrl:nocaps"
 #task 
 alias t="task"
 alias ta="task add"
+#hev
+alias xev="xev | awk -F'[ )]+' '/^KeyPress/ { a[NR+2] } NR in a { printf "%-3s %s\n", $5, $8 }'"
+# monitor options
+alias right="xrandr --output HDMI-1 --rotate right"
+alias off="xrandr --output eDP-1 --off"
 
 # completions
 autoload -Uz compinit
@@ -90,7 +100,6 @@ autoload edit-command-line; zle -N edit-command-line
 # bindkey '^e' edit-command-line
 
 # TODO Remove these
-setxkbmap -option caps:ctrl
 xset r rate 210 40
 
 # Speedy keys
@@ -104,7 +113,6 @@ export BROWSER="chrome"
 # For QT Themes
 export QT_QPA_PLATFORMTHEME=qt5ct
 
-# remap caps to escape
-setxkbmap -option caps:escape
-# swap escape and caps
-# setxkbmap -option caps:swapescape
+#ctrl remaps
+setxkbmap -layout us -option ctrl:nocaps
+
