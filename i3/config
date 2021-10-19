@@ -45,6 +45,10 @@ bindsym $mod+Return exec alacritty
 # start Google-chrome
 bindsym $mod+Shift+Return exec firefox; 
 
+#start file browser
+bindsym $mod+f exec nautilus
+
+
 # gyazo
 bindsym $mod+m exec gyazo
 
@@ -258,8 +262,9 @@ default_border pixel 2
 default_floating_border pixel 2
 
 # keybinding for i3lock
-bindsym $mod+x exec i3lock
+bindsym $mod+x exec ~/Git/i3lock-solarized/bin/i3lock-solarized-dark.sh
 
+bindsym $mod+KP_1 exec nautilus;
 # asign programs to workspaces
 
 # Open terminal on startup 

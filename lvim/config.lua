@@ -23,7 +23,7 @@ lvim.keys.normal_mode["<C-s>"] = ":w<cr>"
 -- lvim.keys.normal_mode["<C-q>"] = ":q<cr>"
 
 --Remove dashboard statusline
-vim.g.dashboard_disable_statusline = 0
+vim.g.dashboard_disable_statusline = 1
 
 -- Change Telescope navigation to use j and k for navigation and n and p for history in both input and normal mode.
 lvim.builtin.telescope.on_config_done = function()
@@ -106,10 +106,10 @@ lvim.plugins = {
       {'ishan9299/nvim-solarized-lua'},
       {"folke/zen-mode.nvim"},
     {"folke/tokyonight.nvim"},
---     {
---       "folke/trouble.nvim",
---       cmd = "TroubleToggle",
---     },
+    -- {
+    --   "folke/trouble.nvim",
+    --   cmd = "TroubleToggle",
+    -- },
 }
 
 -- Autocommands (https://neovim.io/doc/user/autocmd.html)
